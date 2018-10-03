@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <title>Cellsv1</title>
+   </head>
+   <script src = './cells.js'></script>
+   <style>
+      canvas{
+         border: 1px dotted black;
+      }
+   </style>
+   <body>
+      <script>
+         //canvas code
+         var canvas = document.createElement('canvas');
+         canvas.id = 'canvas1';
+         canvas.height =  1000;
+         canvas.width = 1000;
+         document.body.appendChild(canvas);
+         var context = canvas.getContext('2d');
+         var center_y = canvas.height / 2.0;
+         var center_x = canvas.width / 2.0;
+         cells = [];
+         cells.push(new Cell(context, center_x, center_y, cells));
+
+
+         function gameLoop(){
+            context.clearRect(0, 0, canvas.width, canvas.height); //clear for drawing
+            update_cells(cells);
+            render_cells(cells);
+            window.requestAnimationFrame(gameLoop);
+         }
+         window.requestAnimationFrame(gameLoop);
+      </script>
+   </body>
+</html>
