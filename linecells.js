@@ -115,7 +115,7 @@ class Cell{
 	   	this.context.strokeStyle = "#ffffff"
 		this.context.beginPath();
 		this.context.globalAlpha = 1.0;
-		this.context.lineWidth = 10
+		this.context.lineWidth = this.size/20.0;
 		var half_width = this.size/2;
 		var x = this.x - half_width;
 		var y = this.y - half_width;
@@ -168,8 +168,8 @@ class Cell{
 		this.branching_dev = Math.PI/4;
 		this.branching_push = Math.PI/5;
 		//branching logic
-		var noise_x = rand_neg() * this.size * .5;
-		var noise_y = rand_neg() * this.size * .5; //only positive	
+		var noise_x = rand_neg() * this.size;
+		var noise_y = rand_neg() * this.size; //only positive	
 		var rand_x = Math.round(Math.cos(this.direction)) * this.size + noise_x;
 		var rand_y = Math.round(Math.sin(this.direction)) * this.size + noise_y;
 		rand_x = rand_x/30.0;
