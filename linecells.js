@@ -45,6 +45,13 @@ class GlobalStateContainer{
 		 var branching_chance = .99;
 		 this.cells.push(new Cell(state, this.max_size, this.canvas.width/2, this.canvas.height, direction, cells, branching_chance));
 	}
+	create_cell(x, y){
+		//make dependent on x position
+		//add in a cell
+		 var direction = 3*Math.PI/2.0;
+		 var branching_chance = .99;
+		 this.cells.push(new Cell(state, this.max_size, x, this.canvas.height, direction, cells, branching_chance));
+	}
 }
 
 class Leaf{
@@ -101,7 +108,7 @@ class Cell{
 		}
 	}
 	die(){
-		if (this.size < 5.0){
+		if (this.size < 1.0){
 			var index = this.cells.indexOf(this);
 			if (index > -1) {
 			  this.cells.splice(index, 1);
